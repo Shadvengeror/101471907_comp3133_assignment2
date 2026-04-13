@@ -1,0 +1,67 @@
+<div class="container mt-5">
+    <div class="card p-4 bg-dark text-white shadow border-secondary" style="max-width: 700px; margin: auto;">
+        <h3 class="mb-4 text-center">Add New Employee</h3>
+        <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">First Name</label>
+                    <input type="text" formControlName="first_name"
+                        class="form-control bg-dark text-white border-secondary" placeholder="John">
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Last Name</label>
+                    <input type="text" formControlName="last_name"
+                        class="form-control bg-dark text-white border-secondary" placeholder="Doe">
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="email" formControlName="email" class="form-control bg-dark text-white border-secondary"
+                    placeholder="john.doe@example.com">
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Designation</label>
+                    <input type="text" formControlName="designation"
+                        class="form-control bg-dark text-white border-secondary" placeholder="Software Engineer">
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Department</label>
+                    <input type="text" formControlName="department"
+                        class="form-control bg-dark text-white border-secondary" placeholder="IT">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Date of Joining</label>
+                    <input type="date" formControlName="date_of_joining"
+                        class="form-control bg-dark text-white border-secondary">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Salary</label>
+                    <input type="number" formControlName="salary"
+                        class="form-control bg-dark text-white border-secondary" placeholder="50000">
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Gender</label>
+                    <select formControlName="gender" class="form-select bg-dark text-white border-secondary">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-end mt-4">
+                <button type="button" class="btn btn-outline-secondary me-2" routerLink="/employees">Cancel</button>
+                <button type="submit" class="btn btn-primary" [disabled]="employeeForm.invalid">Save Employee</button>
+            </div>
+        </form>
+    </div>
+</div>

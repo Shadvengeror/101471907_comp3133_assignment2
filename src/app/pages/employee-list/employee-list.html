@@ -1,0 +1,42 @@
+<div class="container mt-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="text-white">Employee List</h2>
+    <div>
+      <button class="btn btn-success me-2" routerLink="/add-employee">Add Employee</button>
+      <button class="btn btn-outline-danger" (click)="logout()">Logout</button>
+    </div>
+  </div>
+
+  <div class="mb-3">
+  <input type="text" class="form-control bg-dark text-white border-secondary" 
+         placeholder="Search by Department or Designation..." 
+         (input)="onSearch($event)">
+</div>
+
+  <div class="table-responsive">
+    <table class="table table-dark table-hover border-secondary">
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Designation</th>
+          <th class="text-center">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let emp of employees">
+          <td>{{ emp.first_name }}</td>
+          <td>{{ emp.last_name }}</td>
+          <td>{{ emp.email }}</td>
+          <td>{{ emp.designation }}</td>
+          <td class="text-center">
+            <button class="btn btn-info btn-sm me-2" [routerLink]="['/view-employee', emp._id]">View</button>
+            <button class="btn btn-warning btn-sm me-2" [routerLink]="['/update-employee', emp._id]">Update</button>
+            <button class="btn btn-danger btn-sm" (click)="deleteEmployee(emp._id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
